@@ -1,0 +1,18 @@
+.options {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+.option {
+    background-color: rgb(61, 126, 179);
+    color: white;    
+}
+.reset {
+    background-color: rgb(255, 0, 0);
+    color: white;
+    margin-left: 30px;
+}
+.reset:hover {
+    background-color: rgba(247, 53, 53, 0.8);
+}

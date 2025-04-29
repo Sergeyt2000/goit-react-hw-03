@@ -1,0 +1,19 @@
+.feedback {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-size: 18px;
+    justify-content: center;
+    padding: 20px;
+}
+.feedbackItem {
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    border-radius: 8px;
+    padding: 10px;
+    max-width: 140px;
+    user-select: none;
+}
+.total {
+    background-color: greenyellow;
+}
