@@ -1,7 +1,8 @@
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
 import { nanoid } from "nanoid";
 import css from "./ContactForm.module.css";
+import { formSchema } from "../../formSchema";
 
 export default function ContactForm({ addContact }) {
   const nameFieldId = useId();
@@ -18,13 +19,21 @@ export default function ContactForm({ addContact }) {
     actions.resetForm();
   };
   return (
-    <Formik initialValues={initialContacts} onSubmit={handleSubmit}>
+    <Formik
+      initialValues={initialContacts}
+      onSubmit={handleSubmit}
+      validationSchema={formSchema}
+    >
       <Form className={css.contactForm}>
         <label htmlFor={nameFieldId}>Name</label>
         <Field type="text" name="username" id={nameFieldId} />
+        <ErrorMessage name="username" component="span" className={css.errormsg}/>
         <label htmlFor={phoneFieldId}>Number</label>
         <Field type="tel" name="phonenumber" id={phoneFieldId} />
-        <button className={css.addbtn} type="submit">Add contact</button>
+        <ErrorMessage name="phonenumber" component="span" className={css.errormsg}/>
+        <button className={css.addbtn} type="submit">
+          Add contact
+        </button>
       </Form>
     </Formik>
   );
