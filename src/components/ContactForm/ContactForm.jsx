@@ -15,7 +15,6 @@ export default function ContactForm({ addContact }) {
       name: values.username,
       number: values.phonenumber,
     });
-    console.log(values.username, values.phonenumber);
     actions.resetForm();
   };
   return (
