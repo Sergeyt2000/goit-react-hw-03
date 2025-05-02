@@ -1,6 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useId } from "react";
-import { nanoid } from "nanoid";
+import { customAlphabet } from "nanoid";
+import { numbers } from "nanoid-dictionary";
 import css from "./ContactForm.module.css";
 import { formSchema } from "../../formSchema";
 
@@ -9,9 +10,11 @@ export default function ContactForm({ addContact }) {
   const phoneFieldId = useId();
   const initialContacts = { username: "", phonenumber: "" };
   
-  const handleSubmit = (values, actions) => {     
+  
+  const handleSubmit = (values, actions) => {
+    const uniqueId = customAlphabet(numbers, 5);
     addContact({
-      id: nanoid(10),
+      id: "id-" + uniqueId(),
       name: values.username,
       number: values.phonenumber,
     });
